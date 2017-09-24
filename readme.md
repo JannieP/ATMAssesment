@@ -1,6 +1,5 @@
 **CashMan 3001**
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+[![Build Status](https://travis-ci.org/JannieP/CashMan-3001.svg?branch=master)](https://travis-ci.org/JannieP/CashMan-3001)
 All Source code:
 All source code is attached to the email, however, I have added it to a github project as well
 https://github.com/JannieP/CashMan-3001
