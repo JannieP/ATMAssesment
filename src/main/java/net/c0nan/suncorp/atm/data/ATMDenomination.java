@@ -13,7 +13,7 @@ public enum ATMDenomination {
 
     private double nominalValue;
 
-    ATMDenomination(double nominalValue) {
+    ATMDenomination(final double nominalValue) {
         this.nominalValue = nominalValue;
     }
 

@@ -60,5 +60,4 @@ public class ATMBaseTest {
         Assert.assertEquals(base.getDenominationQuantity(ATMDenomination.HUNDRED), 4);
     }
 
-
 }

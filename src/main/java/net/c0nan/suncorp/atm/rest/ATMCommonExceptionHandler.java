@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ATMCommonExceptionHandler {
 
     @ExceptionHandler({ATMInsufficientDenominationsException.class})
-    public ResponseEntity<ATMDto> handleAllConflicts(Exception ex) {
+    public ResponseEntity<ATMDto> handleAllConflicts(final Exception ex) {
         ATMDto error = new ATMDto();
         error.setMessage(ex.getLocalizedMessage());
         return new ResponseEntity<>(error, HttpStatus.PRECONDITION_FAILED);

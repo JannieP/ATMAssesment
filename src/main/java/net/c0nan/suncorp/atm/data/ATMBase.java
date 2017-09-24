@@ -39,8 +39,7 @@ public class ATMBase {
         return true;
     }
 
-
-    public int getDenominationQuantity(ATMDenomination denomination) {
+    public int getDenominationQuantity(final ATMDenomination denomination) {
         Integer result = getQuantities().get(denomination);
         return result == null ? 0 : result;
     }

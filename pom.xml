@@ -25,6 +25,8 @@
         <lombok.version>1.16.16</lombok.version>
         <commons-lang3.version>3.5</commons-lang3.version>
         <restassured.version>2.8.0</restassured.version>
+        <checkstyle.version>2.17</checkstyle.version>
+        <checkstyle.config.location>${project.basedir}/src/main/resources/checks.xml</checkstyle.config.location>
     </properties>
 
     <dependencies>
@@ -108,8 +110,38 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>net.revelc.code</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <version>0.5.2</version>
+                <configuration>
+                    <skip>false</skip>
+                    <configFile>src/main/resources/format.xml</configFile>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${checkstyle.version}</version>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                        <goal>check</goal>
+                    </goals>
+                        <configuration>
+                            <skip>false</skip>
+                            <configLocation>${checkstyle.config.location}</configLocation>
+                            <consoleOutput>true</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                            <failOnViolation>true</failOnViolation>
+                            <includeTestResources>true</includeTestResources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
 
 </project>

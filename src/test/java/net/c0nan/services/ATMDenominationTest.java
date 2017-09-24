@@ -105,12 +105,11 @@ public class ATMDenominationTest {
         Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.HUNDRED) == 1);
 
         Assert.assertTrue(denominations.calculateCombinations(dto.reset(), TWOHUNDRED));
-        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.TEN)==null);
-        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.TWENTY)== null);
-        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.FIFTY)==null);
-        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.HUNDRED)==2);
+        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.TEN) == null);
+        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.TWENTY) == null);
+        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.FIFTY) == null);
+        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.HUNDRED) == 2);
     }
-
 
     @Test
     public void testATMDenominations200Special() throws Exception {
@@ -124,10 +123,10 @@ public class ATMDenominationTest {
         Assert.assertFalse(denominations.calculateCombinations(dto.reset(), EIGHTY));
 
         Assert.assertTrue(denominations.calculateCombinations(dto.reset(), TWOHUNDRED));
-        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.TEN)==null);
-        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.TWENTY)== 5);
-        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.FIFTY)==2);
-        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.HUNDRED)==null);
+        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.TEN) == null);
+        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.TWENTY) == 5);
+        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.FIFTY) == 2);
+        Assert.assertTrue(dto.getTheMoney().get(ATMDenomination.HUNDRED) == null);
 
     }
 

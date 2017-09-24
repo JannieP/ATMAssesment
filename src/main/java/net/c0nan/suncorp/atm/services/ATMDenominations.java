@@ -12,19 +12,18 @@ import java.util.Comparator;
 @Service
 public class ATMDenominations {
 
-
     private ATMBase base;
 
     @Autowired
-    public ATMDenominations(ATMBase base) {
+    public ATMDenominations(final ATMBase base) {
         this.base = base;
     }
 
-    public boolean calculateCombinations(ATMDto combination, final double amount) {
+    public boolean calculateCombinations(final ATMDto combination, final double amount) {
         return calculateCombinations(combination, amount, 0);
     }
 
-    private boolean calculateCombinations(ATMDto combination, double amount, final Integer activeIndex) {
+    private boolean calculateCombinations(final ATMDto combination, final double amount, final Integer activeIndex) {
 
         double effectiveAmount = amount;
 
@@ -71,7 +70,7 @@ public class ATMDenominations {
 
     class DecendingDenominationComparator implements Comparator<ATMDenomination> {
         @Override
-        public int compare(ATMDenomination a1, ATMDenomination a2) {
+        public int compare(final ATMDenomination a1, final ATMDenomination a2) {
             return Double.compare(a2.getNominalValue(), a1.getNominalValue());
         }
     }

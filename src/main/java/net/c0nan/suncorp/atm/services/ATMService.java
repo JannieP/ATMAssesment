@@ -14,12 +14,12 @@ public class ATMService {
     private ATMBase base;
 
     @Autowired
-    public ATMService(ATMDenominations denominations, ATMBase base) {
+    public ATMService(final ATMDenominations denominations, final ATMBase base) {
         this.denominations = denominations;
         this.base = base;
     }
 
-    public ATMDto withdrawMoney(int amount) {
+    public ATMDto withdrawMoney(final double amount) {
         ATMDto result = new ATMDto();
         synchronized (this) {
             if (denominations.calculateCombinations(result, amount)) {
@@ -32,7 +32,7 @@ public class ATMService {
         return result;
     }
 
-    public boolean depositMoney(ATMDto amounts) {
+    public boolean depositMoney(final ATMDto amounts) {
         synchronized (this) {
             updateBase(amounts, true);
         }
@@ -49,7 +49,7 @@ public class ATMService {
         return base.getTotalHolding();
     }
 
-    private void updateBase(ATMDto result, boolean deposit) {
+    private void updateBase(final ATMDto result, final boolean deposit) {
         for (ATMDenomination denomination : result.getTheMoney().keySet()) {
             Integer value = result.getTheMoney().get(denomination);
             if (value != null) {
