@@ -17,8 +17,10 @@ public class ATMBase {
 
     public static ATMBase getInstance(final ATMMeta atmMeta) {
         if (ATMBase.instance == null) {
+            System.out.println("CHECK3:" + atmMeta.toString());
             ATMBase.instance = new ATMBase(atmMeta.getDefaults());
         }
+        System.out.println("CHECK4:" + atmMeta.toString());
         return ATMBase.instance;
     }
 
