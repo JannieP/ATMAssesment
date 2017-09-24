@@ -43,6 +43,8 @@ public class ATMBaseTest {
         Assert.assertEquals(base.getDenominationQuantity(ATMDenomination.HUNDRED), 10);
 
         base = ATMBase.getInstance(ATMTestConfiguration.getTest12345Meta());
+        System.out.println("CHECK:" + base.getDenominationQuantities().toString());
+
         Assert.assertEquals(base.getDenominationQuantity(ATMDenomination.TEN), 10);
         Assert.assertEquals(base.getDenominationQuantity(ATMDenomination.TWENTY), 10);
         Assert.assertEquals(base.getDenominationQuantity(ATMDenomination.FIFTY), 10);
