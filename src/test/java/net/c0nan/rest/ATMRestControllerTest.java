@@ -12,7 +12,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -118,7 +117,7 @@ public class ATMRestControllerTest {
                 .extract().as(Integer.class);
 
         ATMDto deposit = new ATMDto();
-        deposit.getTheMoney().put(ATMDenomination.FIFTY,1);
+        deposit.getTheMoney().put(ATMDenomination.FIFTY, 1);
 
         given()
                 .contentType("application/json")
