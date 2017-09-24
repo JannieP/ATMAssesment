@@ -21,6 +21,7 @@ public class ATMBase {
             ATMBase.instance = new ATMBase(atmMeta.getDefaults());
         }
         System.out.println("CHECK4:" + atmMeta.toString());
+        System.out.println("CHECK5:" + ATMBase.instance.getDenominationQuantities());
         return ATMBase.instance;
     }
 
