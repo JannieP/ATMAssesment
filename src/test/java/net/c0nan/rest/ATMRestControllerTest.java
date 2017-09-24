@@ -2,6 +2,7 @@ package net.c0nan.rest;
 
 import com.jayway.restassured.RestAssured;
 import net.c0nan.ATMTestConfiguration;
+import net.c0nan.suncorp.atm.data.ATMDenomination;
 import net.c0nan.suncorp.atm.services.ATMUtil;
 import net.c0nan.suncorp.atm.services.dto.ATMDto;
 import org.junit.Assert;
@@ -11,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -30,7 +32,7 @@ public class ATMRestControllerTest {
     }
 
     @Test
-    public void testATMDenominations() throws Exception {
+    public void testATMRESTWithdraw() throws Exception {
 
         Integer startValue = given()
                 .when()
@@ -105,4 +107,34 @@ public class ATMRestControllerTest {
                 .statusCode(HttpStatus.PRECONDITION_FAILED.value());
     }
 
+    @Test
+    public void testATMRESTDeposit() throws Exception {
+
+        Integer startValue = given()
+                .when()
+                .get("/atm/admin/totalholdings")
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .extract().as(Integer.class);
+
+        ATMDto deposit = new ATMDto();
+        deposit.getTheMoney().put(ATMDenomination.FIFTY,1);
+
+        given()
+                .contentType("application/json")
+                .body(deposit)
+                .when()
+                .post("/atm/deposit")
+                .then()
+                .statusCode(HttpStatus.OK.value());
+
+        Integer newValue = given()
+                .when()
+                .get("/atm/admin/totalholdings")
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .extract().as(Integer.class);
+
+        Assert.assertTrue((startValue + 50) == newValue);
+    }
 }
