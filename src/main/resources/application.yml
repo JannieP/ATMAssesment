@@ -5,4 +5,5 @@ default:
     fifty:  10
     hundred:  10
     twohundred: 10
+  refillThreshold: 2
   endPointLog: true

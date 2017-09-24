@@ -11,7 +11,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -27,10 +29,13 @@ public class ATMServiceTest {
     private ATMService service;
     private ATMBase base;
 
+    @Autowired
+    private ApplicationEventPublisher applicationEventPublisher;
+
     @Before
     public void setup() {
         base = ATMTestBase.getNewInstance(ATMTestConfiguration.getTestMeta());
-        service = new ATMService(new ATMDenominations(base), base);
+        service = new ATMService(new ATMDenominations(base), base,applicationEventPublisher);
     }
 
     @Test

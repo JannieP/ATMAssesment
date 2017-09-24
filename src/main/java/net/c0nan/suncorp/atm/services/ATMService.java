@@ -4,7 +4,9 @@ import net.c0nan.suncorp.atm.data.ATMBase;
 import net.c0nan.suncorp.atm.data.ATMDenomination;
 import net.c0nan.suncorp.atm.services.dto.ATMDto;
 import net.c0nan.suncorp.atm.services.exception.ATMInsufficientDenominationsException;
+import net.c0nan.suncorp.atm.services.listener.event.WithdrawalEvent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,11 +14,13 @@ public class ATMService {
 
     private ATMDenominations denominations;
     private ATMBase base;
+    private ApplicationEventPublisher applicationEventPublisher;
 
     @Autowired
-    public ATMService(final ATMDenominations denominations, final ATMBase base) {
+    public ATMService(final ATMDenominations denominations, final ATMBase base, final ApplicationEventPublisher applicationEventPublisher) {
         this.denominations = denominations;
         this.base = base;
+        this.applicationEventPublisher = applicationEventPublisher;
     }
 
     public ATMDto withdrawMoney(final double amount) {
@@ -57,6 +61,8 @@ public class ATMService {
                     base.addDenominationUnits(denomination, value);
                 } else {
                     base.minusDenominationUnits(denomination, value);
+                    WithdrawalEvent event = new WithdrawalEvent(this, denomination, value, base.getDenominationQuantity(denomination));
+                    applicationEventPublisher.publishEvent(event);
                 }
             }
         }
