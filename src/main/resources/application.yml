@@ -1,0 +1,8 @@
+default:
+  denominations:
+    ten:  11
+    twenty: 10
+    fifty:  10
+    hundred:  10
+    twohundred: 10
+  endPointLog: true

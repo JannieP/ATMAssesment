@@ -1,0 +1,15 @@
+default:
+  denominations:
+    ten:  10
+    twenty: 10
+    fifty:  10
+    hundred:  10
+    twohundred: 10
+  endPointLog: true
+logging:
+  level:
+    net:
+      c0nan:
+        suncorp:
+          atm:
+            ATMLoggingConfiguration: debug
