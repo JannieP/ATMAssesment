@@ -5,6 +5,8 @@ public enum ATMDenomination {
     TENCENT(0.1),
     TWENTYCENT(0.2),
     FIFTYCENT(0.5),
+    ONE(1),
+    TWO(2),
     FIVE(5),
     TEN(10),
     TWENTY(20),

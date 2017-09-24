@@ -20,6 +20,10 @@ public class ATMMeta {
     private int twentycent;
     @Value("${default.denominations.fiftycent:0}")
     private int fiftycent;
+    @Value("${default.denominations.one:0}")
+    private int one;
+    @Value("${default.denominations.two:0}")
+    private int two;
     @Value("${default.denominations.five:0}")
     private int five;
     @Value("${default.denominations.ten:0}")
@@ -37,6 +41,8 @@ public class ATMMeta {
         quantities.put(ATMDenomination.TENCENT, getTencent());
         quantities.put(ATMDenomination.TWENTYCENT, getTencent());
         quantities.put(ATMDenomination.FIFTYCENT, getFiftycent());
+        quantities.put(ATMDenomination.ONE, getOne());
+        quantities.put(ATMDenomination.TWO, getTwo());
         quantities.put(ATMDenomination.FIVE, getFive());
         quantities.put(ATMDenomination.TEN, getTen());
         quantities.put(ATMDenomination.TWENTY, getTwenty());
