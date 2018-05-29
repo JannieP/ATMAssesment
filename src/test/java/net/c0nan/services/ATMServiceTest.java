@@ -35,7 +35,7 @@ public class ATMServiceTest {
     @Before
     public void setup() {
         base = ATMTestBase.getNewInstance(ATMTestConfiguration.getTestMeta());
-        service = new ATMService(new ATMDenominations(base), base,applicationEventPublisher);
+        service = new ATMService(new ATMDenominations(base), base, applicationEventPublisher);
     }
 
     @Test

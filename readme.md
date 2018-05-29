@@ -32,7 +32,7 @@ This will result in Maven downloading all the required dependencies, building th
 
 Instructions on how to execute the application
 When the application starts, an embedded instance of Tomcat will start up with spring-boot.
-The default port is 8080, thus please ensure this port is available, if this is not possible, simply add configuration to the application.yml file in the src/main/resources folder
+I have set the default port is 8081, thus please ensure this port is available, if this is not possible, simply add configuration to the application.yml file in the src/main/resources folder
 
 e.g:
 server:
@@ -47,6 +47,12 @@ To start up the application, using maven and spring-boot plugin use the followin
 to run the application directly from the compiled jar file  
 
 “java –jar target/suncorp-atm-1.0-SNAPSHOT.jar
+
+I have included swagger API Documentation, as well as Swagger UI
+
+http://localhost:8081/swagger-ui.html
+
+I have added supporting comments in the ATM Denominations class to explain how the recursion works.
 
 The minimum code deliverables are:
 1.	Source code – Supplied

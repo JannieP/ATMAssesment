@@ -1,7 +1,7 @@
 package net.c0nan.suncorp.atm.data;
 
 public enum ATMDenomination {
-    FIVECENT(0.5),
+    FIVECENT(0.05),
     TENCENT(0.1),
     TWENTYCENT(0.2),
     FIFTYCENT(0.5),
